@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.green,
       scaffoldBackgroundColor: Colors.white),
       home:  HomePage(),
@@ -42,10 +43,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading:IconButton(
+          style: IconButton.styleFrom(backgroundColor: Colors.white10,elevation: 10),
+              // style: IconButton.styleFrom(shape: CircleBorder(side: BorderSide(width: 10)),backgroundColor: Colors.blueAccent),
+               // padding: EdgeInsets.only(left: 20),
+                onPressed: () {
+            }, icon: Icon(Icons.more_horiz,color: Colors.black,)),
+        title: Center(child: Text("Discussions",)),
+       actions: [
+         IconButton(onPressed: () {
+
+         }, icon: Icon(Icons.photo_camera)),
+         IconButton(
+             style: IconButton.styleFrom(backgroundColor: Colors.green,),
+             onPressed: () {
+           
+         }, icon: Icon(Icons.add,color: Colors.white,))
+       ],
+
+      ),
       body:pages[pagesindex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(border: Border(top: BorderSide(color: Colors.grey,width: 1.5))),
         child: NavigationBar(
+          indicatorColor: Colors.transparent,
           selectedIndex: pagesindex,
           onDestinationSelected: (int index) {
             setState(() {
@@ -55,13 +77,13 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.white,
           destinations: [
             NavigationDestination(
-                icon: Icon(Icons.message), label: "Discussions",),
+                icon: Icon(Icons.message, color: Colors.black54,), label: "Discussions", selectedIcon:Icon(Icons.message, color: Colors.black,) ,),
             NavigationDestination(
-              icon: Icon(Icons.filter_tilt_shift), label: "Actus",),
+              icon: Icon(Icons.filter_tilt_shift,color: Colors.black54,), label: "Actus",selectedIcon:Icon(Icons.filter_tilt_shift, color: Colors.black,) ,),
             NavigationDestination(
-              icon: Icon(Icons.group), label: "Communauté",),
+              icon: Icon(Icons.group,color: Colors.black54,), label: "Communauté",selectedIcon:Icon(Icons.group, color: Colors.black,) ,),
             NavigationDestination(
-              icon: Icon(Icons.phone), label: "Appels",)
+              icon: Icon(Icons.phone,color: Colors.black54,), label: "Appels",selectedIcon:Icon(Icons.phone, color: Colors.black,) ,)
           ],
         ),
       ),
