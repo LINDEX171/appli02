@@ -44,48 +44,49 @@ class _HomePageState extends State<HomePage> {
   int pagesIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Row(
-          crossAxisAlignment:CrossAxisAlignment.center ,
-          children: [
-            Text(
-              'Instagram',
-              style: GoogleFonts.pacifico(textStyle: TextStyle(fontSize: 20.0,color: Colors.black)),
-            ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title:  Row(
+            crossAxisAlignment:CrossAxisAlignment.center ,
+            children: [
+              Text(
+                'Instagram',
+                style: GoogleFonts.pacifico(textStyle: TextStyle(fontSize: 20.0,color: Colors.black)),
+              ),
+              IconButton(onPressed: () {
+      
+              }, icon: Icon(Icons.arrow_drop_down_outlined))
+            ],
+          ),
+          backgroundColor: Colors.white,
+          actions: [
             IconButton(onPressed: () {
-              
-            }, icon: Icon(Icons.arrow_drop_down_outlined))
+      
+            }, icon: Icon(Icons.favorite_border,color: Colors.black,)),
+            IconButton(onPressed: () {
+      
+            }, icon: Icon(Icons.messenger_outline,color: Colors.black,))
+          ],
+      bottom:  TabBar(
+        tabs: [
+        Tab(icon: Icon(Icons.abc_outlined),),
+          Tab(icon: Icon(Icons.nat),),
+          Tab(icon: Icon(Icons.lan_outlined),),
+      ],
+      ),
+
+        ),
+        body: TabBarView(
+          children: [
+            Center(child: Text("hi"),),
+            Center(child: Text("hoo"),),
+            Center(child: Text("hein"),),
           ],
         ),
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(onPressed: () {
-            
-          }, icon: Icon(Icons.favorite_border,color: Colors.black,)),
-          IconButton(onPressed: () {
 
-          }, icon: Icon(Icons.messenger_outline,color: Colors.black,))
-        ],
       ),
-       body: pages[pagesIndex],
-       bottomNavigationBar: NavigationBar(
-         indicatorColor: Colors.transparent,
-         selectedIndex: pagesIndex,
-         backgroundColor: Colors.white,
-         destinations: [
-           NavigationDestination(icon: Icon(Icons.home,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.home,color: Colors.black,),),
-           NavigationDestination(icon: Icon(Icons.search,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.search,color: Colors.black,),),
-           NavigationDestination(icon: Icon(Icons.add_box_rounded,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.add_box_rounded,color: Colors.black,),),
-           NavigationDestination(icon: Icon(Icons.video_collection,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.video_collection,color: Colors.black,),),
-           NavigationDestination(icon: Icon(Icons.person,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.person,color: Colors.black,),),
-         ],
-         onDestinationSelected: (index) {
-           setState(() {
-             pagesIndex = index ;
-           });
-         },
-       ),
     );
   }
 }
