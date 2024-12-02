@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:whatsapp_clone/pages/actus.dart';
 import 'package:whatsapp_clone/pages/appels.dart';
 import 'package:whatsapp_clone/pages/communaute.dart';
@@ -24,70 +26,66 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
-@override
+  @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
 
   final pages = [
-    DiscussionsPage(),
     ActuPage(),
-    CommunautePage(),
     AppelPage(),
+    CommunautePage(),
+    DiscussionsPage(),
+      ActuPage()
   ];
-   int  pagesindex = 0;
+  int pagesIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading:IconButton(
-          style: IconButton.styleFrom(backgroundColor: Colors.white10,elevation: 10),
-              // style: IconButton.styleFrom(shape: CircleBorder(side: BorderSide(width: 10)),backgroundColor: Colors.blueAccent),
-               // padding: EdgeInsets.only(left: 20),
-                onPressed: () {
-            }, icon: Icon(Icons.more_horiz,color: Colors.black,)),
-        title: Center(child: Text("Discussions",)),
-       actions: [
-         IconButton(onPressed: () {
-
-         }, icon: Icon(Icons.photo_camera)),
-         IconButton(
-             style: IconButton.styleFrom(backgroundColor: Colors.green,),
-             onPressed: () {
-           
-         }, icon: Icon(Icons.add,color: Colors.white,))
-       ],
-
-      ),
-      body:pages[pagesindex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(border: Border(top: BorderSide(color: Colors.grey,width: 1.5))),
-        child: NavigationBar(
-          indicatorColor: Colors.transparent,
-          selectedIndex: pagesindex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              pagesindex = index;
-            });
-          },
-          backgroundColor: Colors.white,
-          destinations: [
-            NavigationDestination(
-                icon: Icon(Icons.message, color: Colors.black54,), label: "Discussions", selectedIcon:Icon(Icons.message, color: Colors.black,) ,),
-            NavigationDestination(
-              icon: Icon(Icons.filter_tilt_shift,color: Colors.black54,), label: "Actus",selectedIcon:Icon(Icons.filter_tilt_shift, color: Colors.black,) ,),
-            NavigationDestination(
-              icon: Icon(Icons.group,color: Colors.black54,), label: "Communauté",selectedIcon:Icon(Icons.group, color: Colors.black,) ,),
-            NavigationDestination(
-              icon: Icon(Icons.phone,color: Colors.black54,), label: "Appels",selectedIcon:Icon(Icons.phone, color: Colors.black,) ,)
+        title:  Row(
+          crossAxisAlignment:CrossAxisAlignment.center ,
+          children: [
+            Text(
+              'Instagram',
+              style: GoogleFonts.pacifico(textStyle: TextStyle(fontSize: 20.0,color: Colors.black)),
+            ),
+            IconButton(onPressed: () {
+              
+            }, icon: Icon(Icons.arrow_drop_down_outlined))
           ],
         ),
+        backgroundColor: Colors.white,
+        actions: [
+          IconButton(onPressed: () {
+            
+          }, icon: Icon(Icons.favorite_border,color: Colors.black,)),
+          IconButton(onPressed: () {
+
+          }, icon: Icon(Icons.messenger_outline,color: Colors.black,))
+        ],
       ),
+       body: pages[pagesIndex],
+       bottomNavigationBar: NavigationBar(
+         indicatorColor: Colors.transparent,
+         selectedIndex: pagesIndex,
+         backgroundColor: Colors.white,
+         destinations: [
+           NavigationDestination(icon: Icon(Icons.home,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.home,color: Colors.black,),),
+           NavigationDestination(icon: Icon(Icons.search,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.search,color: Colors.black,),),
+           NavigationDestination(icon: Icon(Icons.add_box_rounded,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.add_box_rounded,color: Colors.black,),),
+           NavigationDestination(icon: Icon(Icons.video_collection,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.video_collection,color: Colors.black,),),
+           NavigationDestination(icon: Icon(Icons.person,color: Colors.black26,), label: "", selectedIcon: Icon(Icons.person,color: Colors.black,),),
+         ],
+         onDestinationSelected: (index) {
+           setState(() {
+             pagesIndex = index ;
+           });
+         },
+       ),
     );
   }
 }
-
