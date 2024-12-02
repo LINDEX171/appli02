@@ -1,3 +1,4 @@
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,13 +70,26 @@ class _HomePageState extends State<HomePage> {
       
             }, icon: Icon(Icons.messenger_outline,color: Colors.black,))
           ],
-      bottom:  TabBar(
-        tabs: [
-        Tab(icon: Icon(Icons.abc_outlined),),
-          Tab(icon: Icon(Icons.nat),),
-          Tab(icon: Icon(Icons.lan_outlined),),
-      ],
-      ),
+      bottom: ButtonsTabBar(
+          backgroundColor: Colors.red,
+          unselectedBackgroundColor: Colors.blueAccent,
+          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          unselectedLabelStyle: TextStyle(color: Colors.black),
+          labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          splashColor: Colors.green,
+
+
+          tabs:[
+           Tab(
+             icon: Icon(Icons.access_alarms_outlined,),text: "alarme",
+           ),
+            Tab(
+              icon: Icon(Icons.abc_outlined),text: "Letter",
+            ),
+            Tab(
+              icon: Icon(Icons.accessible),text: "accessibility",
+            ),
+      ]),
 
         ),
         body: TabBarView(
