@@ -31,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   child: TextField(
                     decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
                      hintText: "numero ou email",
                       labelText: "Numero mobile ou e-mail",
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Colors.lightGreenAccent),)
@@ -43,10 +44,11 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     obscureText: true,
                     decoration: InputDecoration(
-
+enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
                         hintText: "mot de passe",
                         labelText: "mot de passe",
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Colors.lightGreenAccent),)
+
                     ),),
                 ),
               ),
