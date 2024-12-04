@@ -7,6 +7,8 @@ import 'package:whatsapp_clone/pages/appels.dart';
 import 'package:whatsapp_clone/pages/communaute.dart';
 import 'package:whatsapp_clone/pages/discussions.dart';
 import 'package:whatsapp_clone/pages/home_page.dart';
+import 'package:whatsapp_clone/pages/home_page.dart';
+import 'package:whatsapp_clone/pages/login_page.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -22,7 +24,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.green,
       scaffoldBackgroundColor: Colors.white),
-      home:  HomePage(),
+      initialRoute: "/",
+      routes: {
+        "/" : (context)=> HomePage(),
+        "/login" : (context)=> LoginPage(),
+      } ,
     );
   }
 }

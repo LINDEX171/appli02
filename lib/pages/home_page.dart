@@ -94,10 +94,11 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.only(left: 20,right: 20),
-                child: OutlinedButton(onPressed: () {
+                child: OutlinedButton(style: OutlinedButton.styleFrom(backgroundColor: Colors.transparent,side: BorderSide(color: Colors.grey)), onPressed: () {
 
-                }, child: Text("Utiliser un autre profile"),),
-              )
+                }, child: Text("Utiliser un autre profile",style: TextStyle(color: Colors.black),),),
+              ),
+
             ],
           ),
           SizedBox(height: 100),
@@ -106,9 +107,11 @@ class _HomePageState extends State<HomePage> {
              Container(
                width: double.infinity,
                padding: EdgeInsets.only(left: 20,right: 20),
-               child: OutlinedButton(onPressed: () {
-
-               }, child: Text("Créer un compte")
+               child: OutlinedButton(
+                   style: OutlinedButton.styleFrom(side: BorderSide(color: Colors.blueAccent)),
+                   onPressed: () {
+                Navigator.pushNamed(context, "/login");
+               }, child: Text("Créer un compte",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold),)
                ),
              ),
              Image(height: 80, image: NetworkImage("https://th.bing.com/th/id/R.8e45ff61b23561ba4dbddf04e1305b45?rik=LnEbM4yVQ%2fmf%2fw&pid=ImgRaw&r=0"))
