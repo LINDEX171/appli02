@@ -22,13 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorSchemeSeed: Colors.green,
-      scaffoldBackgroundColor: Colors.white),
-      initialRoute: "/",
-      routes: {
-        "/" : (context)=> HomePage(),
-        "/login" : (context)=> LoginPage(),
-      } ,
+      home: HomePage(),
     );
   }
 }
