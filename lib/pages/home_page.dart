@@ -41,13 +41,14 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.refresh))),
       ],
     ),
-    body: ListView.builder(
-      itemCount: pays.length,
-      itemBuilder: (context, index) {
-         return ListTile(title: Text(pays[index]["name"]["common"]),leading: Text(pays[index]["flag"],style: TextStyle(fontSize: 40),),subtitle: pays[index]["capital"]!= null  ?  Text(pays[index]["capital"][0]) : Text("cap not avalaible") , onTap: () {
+    body:  pays.isEmpty ?  Center(child: CircularProgressIndicator()) : ListView.builder(
+        itemCount: pays.length,
+        itemBuilder: (context, index) {
+           return ListTile(title: Text(pays[index]["name"]["common"]),leading: Text(pays[index]["flag"],style: TextStyle(fontSize: 40),),subtitle: pays[index]["capital"]!= null  ?  Text(pays[index]["capital"][0]) : Text("cap not avalaible") , onTap: () {
 
-         },);
-      },)
+           },);
+        },
+    )
     );
   }
 }

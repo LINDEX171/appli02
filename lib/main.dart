@@ -8,6 +8,7 @@ import 'package:whatsapp_clone/pages/communaute.dart';
 import 'package:whatsapp_clone/pages/discussions.dart';
 import 'package:whatsapp_clone/pages/home_page.dart';
 import 'package:whatsapp_clone/pages/home_page.dart';
+import 'package:whatsapp_clone/pages/loading_page.dart';
 import 'package:whatsapp_clone/pages/login_page.dart';
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: LoadingPage(),
     );
   }
 }
