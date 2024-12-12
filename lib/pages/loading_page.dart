@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:whatsapp_clone/pages/home_page.dart';
+import 'package:whatsapp_clone/pages/onboarding_page.dart';
+import 'package:whatsapp_clone/widgets/onboarding.dart';
 
 
 class LoadingPage extends StatefulWidget {
@@ -28,7 +30,7 @@ class _LoadingPageState extends State<LoadingPage> {
 }
 
   onloaded(){
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage(),));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Onboarding(),));
   }
   @override
   Widget build(BuildContext context) {
