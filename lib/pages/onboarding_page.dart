@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/widgets/onboarding.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -8,21 +9,34 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
+
+    final PageController _pageController = PageController();
+    int _currentPage = 0 ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        toolbarHeight: 30,
+        backgroundColor: Colors.transparent,
+      ),
       body: Stack(
         children: [
           PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index ;
+              });
+            },
             children: [
-              Text("hi"),
-              Text("ho"),
-              Text("hin"),
+              Onboarding(title: "🌍 Explore the World", subtitle: 'Find every country and its capital in one place.', image: "assets/images/country2.png"),
+              Onboarding(title: "📖 Learn Every Detail", subtitle: 'Capitals, population, official languages, and much more at your fingertips.', image: "assets/images/country1.jpg"),
+              Onboarding(title: "🚀 Your Universal Guide", subtitle: 'Quickly search and effortlessly navigate through country information.', image: "assets/images/country3.jpg"),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,9 +50,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         alignment: AlignmentDirectional.center,
                         duration: Duration(milliseconds: 300),
                         height: 10,
-                        width: 10,
+                        width: _currentPage==index ? 18 : 10,
                         decoration: BoxDecoration(
-                            color: Colors.lightBlueAccent,
+                            color: _currentPage==index ? Colors.lightBlueAccent : Colors.grey ,
                             borderRadius: BorderRadius.circular(10)),
                         margin: EdgeInsets.only(right: 5),
                       );

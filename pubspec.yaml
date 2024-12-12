@@ -83,6 +83,7 @@ flutter:
    - assets/images/country1.jpg
    - assets/images/country2.png
    - assets/images/country3.jpg
+   - assets/images/symbol.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

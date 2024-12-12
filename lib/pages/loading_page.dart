@@ -30,7 +30,7 @@ class _LoadingPageState extends State<LoadingPage> {
 }
 
   onloaded(){
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Onboarding(),));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => OnboardingPage(),));
   }
   @override
   Widget build(BuildContext context) {
